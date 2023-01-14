@@ -9,14 +9,14 @@ class animStruct {
 		this.current_frame = 0;
   }
 }
-
+/*//DORMANT CODE
 class animState {
 	constructor(state_id_reference, state_update_freq_reference, reversal_boolean_reference) {
 		this.state_id = state_id_reference;
 		this.state_update_freq = state_update_freq_reference;
 		this.reversal_boolean = reversal_boolean_reference;
 	}
-}
+}*/
 
 var anim_img_id_01 = document.getElementById('page_02_panel_01_anim');
 var anim_img_id_02 = document.getElementById('page_02_panel_02_anim');

@@ -25,82 +25,66 @@ var frame_13 = 'testframes/hat-off-2.png';
 var frame_14 = 'testframes/hat-off-3.png';
 var frame_15 = 'testframes/hat-off-4.png';
 
-//ARRAYS FOR EACH SET OF FRAMES
+//ARRAYS FOR EACH ANIMATION SUBSET
 var idle_array = [frame_00, frame_01, frame_02, frame_03];
 var hat_on_array = [frame_04, frame_05, frame_06, frame_07];
 var idle_hat_array = [frame_08, frame_09, frame_10, frame_11];
 var hat_off_array = [frame_12, frame_13, frame_14, frame_15];
 
-var state_id_00 = idle_array;
-var state_id_01 = hat_on_array;
-var state_id_02 = idle_hat_array;
-var state_id_03 = hat_off_array;
-
-//nextState (class)
-class nextState {
-	constructor(state_id, weight) {
-		this.state_id = state_id;
-		this.weight = weight;
+//THIS CONSTRUCT GROUPS ANIMATION SUBSETS WITH A DEFAULT WEIGHT # (WEIGHTING RANGES 0 - 1)
+//THE RESULTING "STATES" WILL FEED THE STATE MACHINE
+class state {
+	constructor(frames_reference, weight_reference) {
+		this.frames = frames_reference;
+		this.weight = weight_reference;
 	}
 }
 
-var next_is_idle = new nextState (idle_array, 1);
-var next_is_hat_on = new nextState (hat_on_array, 1);
-var next_is_idle_hat = new nextState (idle_hat_array, 1);
-var next_is_hat_off = new nextState (hat_off_array, 1);
+//INSTANTIATE ANIMATION STATES!
+var state_idle = new state (idle_array, 1);
+var state_hat_on = new state (hat_on_array, 1);
+var state_idle_hat = new state (idle_hat_array, 1);
+var state_hat_off = new state (hat_off_array, 1);
 
-//exitProtocol (array)
-var exit_protocol_00 = [next_is_hat_on, next_is_idle_hat];
-var exit_protocol_00 = [next_is_hat_off, next_is_idle];
+//DEFINE SETS OF ANIMATIONS (A SET IS THE TOTALITY OF INTANTIATED ANIM SUBSETS (STATES) FOR A GIVEN IMG ID)
+var set_00 = [state_idle, state_hat_on, state_idle_hat, state_hat_off];
 
-/*
-//animState (class)
-class animState () {
-	constructor (state_id, frame_array, exit_protocol) {
-		//???
-	}
-}
-
-//animStruct (class)
-class animStruct() {
-	constuctor(img_id, initial_animState) {
-		//sets current_frame to 0?
-	}
-}
-
-//stateMachine (class)
-class stateMachine () {
-	//7.1. create function for determining new states
-	//7.2. pass in animStruct
-	//7.3. chooses a new state based on exitProtocol and Math.random()
-	//7.4. after choosing a new state, update current_state for animStruct
-}
-
-function updateAnim() {
-	//8.1. pass in animStruct
-	//8.2. uses current_state to update current frames
-	//8.3. when current_state finishes, ask stateMachine for a new current_state
-}
-*/
-
-//NECROMANCY
+//BUILD THE ANIMATION!
+//COMPONENTS OF EACH ANIMATION: IMG ID, ANIM SET, INITIAL STATE (ANIM SET[0]), REVERSAL BOOLEAN (ANIM PLAY DIRECTION)
 class animStruct {
-	constructor(img_id, frames, update_freq) {
-		this.img_id = img_id;
-		this.frames = frames;
-		this.update_freq = update_freq;
+	constructor(img_id_reference, set_reference, reversal_boolean_reference) {
+		this.img_id = img_id_reference;
+		this.set = set_reference;
+		this.current_state = 0;
 		this.current_frame = 0;
-    }
+		this.reversal_boolean = reversal_boolean_reference;
+	}
 }
 
-var freq_00 = 100;
-var anim_0 = new animStruct(anim_img_id_00, idle_array, freq_00);
-var t_0 = setInterval(function(){updateAnim(anim_0)}, anim_0.update_freq);
+//TESTING....... BAD STRUCTURE......................
+var anim_00 = new animStruct(anim_img_id_00, set_00, false);	//where to define update frequency!?!?!?
+var t = setInterval(function(){animController.updateAnim(anim_00)}, 100);
 
 
-function updateAnim(anim) {
-	if (anim.img_id == null) return;
-	anim.img_id.src = anim.frames[anim.current_frame];
-	anim.current_frame++;
-	if (anim.current_frame >= anim.frames.length) {anim.current_frame = 0;}
+//FRAME-BY-FRAME HANDLER, STATE SWITCHER
+class animController {
+	static updateAnim(anim_reference) {
+		if (anim_reference.img_id == null) {return;}
+		console.log("moooooooooooo");
+		if (!anim_reference.reversalBoolean) {this.#updateForward(anim_reference);}
+		else {this.#updateReverse(anim_reference);}
+	}
+	
+	static #updateForward (anim) {
+		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
+		anim.current_frame++;
+		if (anim.current_frame >= anim.set[anim.current_state].frames.length) {anim.current_frame = 0;}
+		console.log("UPDATE FORWARD!!!!!!!!! Set: [" + anim.current_state + "] [" + anim.current_frame + "]");
+	}
+	
+	static #updateReverse (anim) { console.log("UPDATE REVERSE!!!!!!!!!!!!!!!!");
+//		anim.img_id.src = anim.frames[anim.current_frame];
+//		anim.current_frame--;
+//		if (anim.current_frame < 0) {anim.current_frame = anim.frames.length - 1;}
+	}
 }
