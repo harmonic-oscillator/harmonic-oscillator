@@ -53,24 +53,35 @@ var next_is_hat_off = new nextState (hat_off_array, 1);
 var exit_protocol_00 = [next_is_hat_on, next_is_idle_hat];
 var exit_protocol_00 = [next_is_hat_off, next_is_idle];
 
+/*
 //animState (class)
-class animState (state_id, frame_array, exit_protocol) {}
+class animState () {
+	constructor (state_id, frame_array, exit_protocol) {
+		//???
+	}
+}
 
+//animStruct (class)
+class animStruct() {
+	constuctor(img_id, initial_animState) {
+		//sets current_frame to 0?
+	}
+}
 
+//stateMachine (class)
+class stateMachine () {
+	//7.1. create function for determining new states
+	//7.2. pass in animStruct
+	//7.3. chooses a new state based on exitProtocol and Math.random()
+	//7.4. after choosing a new state, update current_state for animStruct
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function updateAnim() {
+	//8.1. pass in animStruct
+	//8.2. uses current_state to update current frames
+	//8.3. when current_state finishes, ask stateMachine for a new current_state
+}
+*/
 
 //NECROMANCY
 class animStruct {
