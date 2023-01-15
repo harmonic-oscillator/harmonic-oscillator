@@ -56,35 +56,49 @@ class animStruct {
 		this.img_id = img_id_reference;
 		this.set = set_reference;
 		this.current_state = 0;
-		this.current_frame = 0;
 		this.reversal_boolean = reversal_boolean_reference;
+		
+		if(!this.reversal_boolean) {this.current_frame = 0;}
+		else {this.current_frame = this.set[this.current_state].frames.length - 1;}
+		this.img_id.src = this.set[this.current_state].frames[this.current_frame];
 	}
 }
 
-//TESTING....... BAD STRUCTURE......................
-var anim_00 = new animStruct(anim_img_id_00, set_00, false);	//where to define update frequency!?!?!?
-var t = setInterval(function(){animController.updateAnim(anim_00)}, 100);
+//INSTANTIATE ANIMATIONS, RUN THEM THROUGH THE CONTROLLER USING SETINTERVAL. SECOND VALUE IS FRAMERATE
+var anim_00 = new animStruct(anim_img_id_00, set_00, true);
+var t_00 = setInterval(function(){animController.updateAnim(anim_00)}, 600);
 
 
 //FRAME-BY-FRAME HANDLER, STATE SWITCHER
 class animController {
 	static updateAnim(anim_reference) {
 		if (anim_reference.img_id == null) {return;}
-		console.log("moooooooooooo");
-		if (!anim_reference.reversalBoolean) {this.#updateForward(anim_reference);}
+		if (!anim_reference.reversal_boolean) {this.#updateForward(anim_reference);}
 		else {this.#updateReverse(anim_reference);}
 	}
 	
 	static #updateForward (anim) {
-		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
 		anim.current_frame++;
-		if (anim.current_frame >= anim.set[anim.current_state].frames.length) {anim.current_frame = 0;}
-		console.log("UPDATE FORWARD!!!!!!!!! Set: [" + anim.current_state + "] [" + anim.current_frame + "]");
+		if (anim.current_frame >= anim.set[anim.current_state].frames.length) {
+			stateMachine.stateDeterminer();
+			anim.current_frame = 0;
+		}
+		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
+		console.log("[" + anim.current_state + "] [" + anim.current_frame + "]");
 	}
 	
-	static #updateReverse (anim) { console.log("UPDATE REVERSE!!!!!!!!!!!!!!!!");
-//		anim.img_id.src = anim.frames[anim.current_frame];
-//		anim.current_frame--;
-//		if (anim.current_frame < 0) {anim.current_frame = anim.frames.length - 1;}
+	static #updateReverse (anim) {
+		anim.current_frame--;
+		if (anim.current_frame < 0) {
+			stateMachine.stateDeterminer();
+			anim.current_frame = anim.set[anim.current_state].frames.length - 1;
+		}
+		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
+		console.log("[" + anim.current_state + "] [" + anim.current_frame + "]");
 	}
+}
+
+
+class stateMachine {
+	static stateDeterminer () {console.log("STATE MACHINE TIME!");}
 }
