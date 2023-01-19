@@ -2,49 +2,20 @@
 //RARE HAT VFT VERSION
 //MNO
 
-//DATA.JS
-var anim_img_id_00 = document.getElementById('test-anim');
-
-var frame_00 = 'testframes/idle-1.png';
-var frame_01 = 'testframes/idle-2.png';
-var frame_02 = 'testframes/idle-3.png';
-var frame_03 = 'testframes/idle-4.png';
-
-var frame_04 = 'testframes/hat-on-1.png';
-var frame_05 = 'testframes/hat-on-2.png';
-var frame_06 = 'testframes/hat-on-3.png';
-var frame_07 = 'testframes/hat-on-4.png';
-
-var frame_08 = 'testframes/idle-hat-1.png';
-var frame_09 = 'testframes/idle-hat-2.png';
-var frame_10 = 'testframes/idle-hat-3.png';
-var frame_11 = 'testframes/idle-hat-4.png';
-
-var frame_12 = 'testframes/hat-off-1.png';
-var frame_13 = 'testframes/hat-off-2.png';
-var frame_14 = 'testframes/hat-off-3.png';
-var frame_15 = 'testframes/hat-off-4.png';
-
-//ARRAYS FOR EACH ANIMATION SUBSET
-var idle_array = [frame_00, frame_01, frame_02, frame_03];
-var hat_on_array = [frame_04, frame_05, frame_06, frame_07];
-var idle_hat_array = [frame_08, frame_09, frame_10, frame_11];
-var hat_off_array = [frame_12, frame_13, frame_14, frame_15];
-
-//THIS CONSTRUCT GROUPS ANIMATION SUBSETS WITH A DEFAULT WEIGHT # (WEIGHTING RANGES 0 - 1)
-//THE RESULTING "STATES" WILL FEED THE STATE MACHINE
+//THIS CONSTRUCT GROUPS ANIMATION SUBSETS WITH WEIGHTS FOR TRANSITIONING STATES (WEIGHTING RANGES 0 - 1)
 class state {
-	constructor(frames_reference, weight_reference) {
+	constructor(frames_reference, weighting_reference) {
 		this.frames = frames_reference;
-		this.weight = weight_reference;
+		this.weighting = weighting_reference;
 	}
 }
 
 //INSTANTIATE ANIMATION STATES!
-var state_idle = new state (idle_array, 1);
-var state_hat_on = new state (hat_on_array, 1);
-var state_idle_hat = new state (idle_hat_array, 1);
-var state_hat_off = new state (hat_off_array, 1);
+//THESE WILL FEED THE STATE MACHINE .................................
+var state_idle = new state (idle_array, idle_state_weighting);
+var state_hat_on = new state (hat_on_array, hat_on_state_weighting);
+var state_idle_hat = new state (idle_hat_array, idle_hat_state_weighting);
+var state_hat_off = new state (hat_off_array, hat_off_state_weighting);
 
 //DEFINE SETS OF ANIMATIONS (A SET IS THE TOTALITY OF INTANTIATED ANIM SUBSETS (STATES) FOR A GIVEN IMG ID)
 var set_00 = [state_idle, state_hat_on, state_idle_hat, state_hat_off];
@@ -57,31 +28,31 @@ class animStruct {
 		this.set = set_reference;
 		this.current_state = 0;
 		this.reversal_boolean = reversal_boolean_reference;
-		
+		//SETS CURRENT SRC FRAME BASED ON REVERSAL BOOLEAN. FORWARD = FRAME 0, REVERSE = LAST FRAME
 		if(!this.reversal_boolean) {this.current_frame = 0;}
 		else {this.current_frame = this.set[this.current_state].frames.length - 1;}
 		this.img_id.src = this.set[this.current_state].frames[this.current_frame];
 	}
 }
-
+/* SETINTERVALS! */
 //INSTANTIATE ANIMATIONS, RUN THEM THROUGH THE CONTROLLER USING SETINTERVAL. SECOND VALUE IS FRAMERATE
-var anim_00 = new animStruct(anim_img_id_00, set_00, true);
-var t_00 = setInterval(function(){animController.updateAnim(anim_00)}, 600);
+var anim_00 = new animStruct(anim_img_id_00, set_00, false);
+var t_00 = setInterval(function(){animController.updateAnim(anim_00)},100);
 
 
 //FRAME-BY-FRAME HANDLER, STATE SWITCHER
-class animController {
-	static updateAnim(anim_reference) {
-		if (anim_reference.img_id == null) {return;}
-		if (!anim_reference.reversal_boolean) {this.#updateForward(anim_reference);}
-		else {this.#updateReverse(anim_reference);}
+class animController {	//CHECKS FOR NULL VALUE, CHECKS FOR PLAY DIRECTION AND RUNS RESPECTIVE UPDATE LOOP
+	static updateAnim(anim) {
+		if (anim.img_id == null) {return;}
+		if (!anim.reversal_boolean) {this.#updateForward(anim);}
+		else {this.#updateReverse(anim);}
 	}
 	
 	static #updateForward (anim) {
 		anim.current_frame++;
 		if (anim.current_frame >= anim.set[anim.current_state].frames.length) {
-			stateMachine.stateDeterminer();
 			anim.current_frame = 0;
+			stateMachine.stateDeterminer(anim); //RUNS THE STATE MACHINE AT THE END OF EACH LOOP
 		}
 		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
 		console.log("[" + anim.current_state + "] [" + anim.current_frame + "]");
@@ -90,15 +61,32 @@ class animController {
 	static #updateReverse (anim) {
 		anim.current_frame--;
 		if (anim.current_frame < 0) {
-			stateMachine.stateDeterminer();
 			anim.current_frame = anim.set[anim.current_state].frames.length - 1;
+			stateMachine.stateDeterminer(anim); //RUNS THE STATE MACHINE AT THE END OF EACH LOOP
 		}
 		anim.img_id.src = anim.set[anim.current_state].frames[anim.current_frame];
 		console.log("[" + anim.current_state + "] [" + anim.current_frame + "]");
 	}
 }
 
-
 class stateMachine {
-	static stateDeterminer () {console.log("STATE MACHINE TIME!");}
+	static stateDeterminer (anim) {
+		console.log("STATE MACHINE! [" + anim.current_state + "] [" + anim.current_frame + "]");
+		var r = Math.random();
+		console.log(r);
+		//WEIGHTS ROUTINE
+		//ADD UP ALL WEIGHTS (IN THIS CASE THEY WILL ALWAYS ADD TO 1)
+		//IF R IS LESS THAN THE FIRST WEIGHT, CHOOSE THE FIRST WEIGHT
+		//IF R IS GREATER THAN THE FIRST WEIGHT, SUBTRACT THAT WEIGHT FROM R
+		//IF R IS LESS THAN THE SECOND WEIGHT, CHOOSE THE SECOND WEIGHT
+		//AND SO ON
+		for (let i = 0; i < anim.set[anim.current_state].weighting.length; i++) {
+			if (r < anim.set[anim.current_state].weighting[i]) {
+				anim.current_state = i;
+				break;
+			}
+			else {r -= anim.set[anim.current_state].weighting[i];}
+		}
+		
+	}
 }

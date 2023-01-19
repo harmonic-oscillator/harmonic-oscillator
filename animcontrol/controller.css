@@ -1,9 +1,10 @@
+/*ANIMATION CONTROLLER DEMO CSS*/
+/*RARE HAT VFT VERSION*/
+/*MNO*/
+
 body {background-color: #000;}
 
-h1 {
-  font: 80px Helvetica;
-  color: #FFCC00;
-}
+h1 {font: 80px Helvetica; color: #FFCC00;}
 
 .flex-container {
   display: flex;
@@ -29,4 +30,4 @@ h1 {
 	border: 1px solid #FFCC00;
 }
 
-#test-anim {}
+#test-anim {image-rendering: pixelated;}
