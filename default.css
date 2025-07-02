@@ -311,6 +311,7 @@ body {
 .osc-crows {
   position: absolute;
   bottom: 4rem;
+  border-bottom: 1px solid #AA3090;
   max-width: 60%;
   max-height: 60%;
 }
