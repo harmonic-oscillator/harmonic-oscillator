@@ -183,7 +183,7 @@ body {
 .main-block-M figure img {border: 1px solid #AA3090;}
 .main-block-M figure figcaption {height: 2rem; margin: -2em 0 0; font-variant: small-caps;}
 .main-block-M address {margin: 1rem 0;}
-.main-block-M h1 {font-size: 2rem;}
+.main-block-M h1 {font-size: 2rem; text-align: center;}
 .main-block-M h2 {font-size: 1.5rem;}
 .main-block-M p {
   font: 16pt Garamond, 'EB Garamond', serif;
