@@ -104,6 +104,18 @@ var enUS_nav_codeblock =
 	  '<circle cx="14" cy="20" r="2" fill="none" stroke="#AA3090" stroke-width="1"/>' +
     '</svg>';
 
+var esES_nav_codeblock =
+	'<svg width="50" height="50">' +
+	  '<desc>Spain Flag: Spanish language option // Hand-coded by ANZOL</desc>' +
+      '<rect width="50" height="30" y="10" fill="none" stroke="#AA3090" stroke-width="1"/>' +
+      '<path d="M0,16 L50,16" stroke="#AA3090" stroke-width="1"/>' +
+	  '<path d="M0,34 L50,34" stroke="#AA3090" stroke-width="1"/>' +
+	  '<rect width="8" height="8" x="8" y="22" fill="none" stroke="#AA3090" stroke-width="1"/>' +
+	  '<path d="M12,22 L12,30 M8,26 L16,26" stroke="#AA3090" stroke-width="1"/>' +
+	  '<path d="M4,22 L4,30 M20,22 L20,30" stroke="#AA3090" stroke-width="1"/>' +
+	  '<path d="M10,22 L8,20 12,19 16,20 14,22" fill="none" stroke="#AA3090" stroke-width="1"/>' +
+    '</svg>';
+
 var side_1_codeblock =
 			'<svg width="50" height="50">' +
 		    '<desc>A D6 Die on #1 // Hand-coded by ANZOL</desc>' +
