@@ -7,13 +7,14 @@
   <meta name='keywords' content='HARMONIC OSCILLATOR UNDERGROUND ARTS &amp; GAME COMPANY'>
   <meta name='author' content='ANZOL'>
   <meta name='viewport' content='width=device-width; initial-scale=1'>
-  <link rel='alternate' hreflang='en' href='https://www.harmonicoscillator.com/devlog.html'/>
-  <link rel='alternate' hreflang='pt-BR' href='https://www.harmonicoscillator.com/ptBR/devlog.html'/>
-  <link rel='alternate' hreflang='x-default' href='https://www.harmonicoscillator.com/devlog.html'/>
-  <link rel='icon' href='logo128.ico' type='image/ico'>
-  <link rel='icon' href='logo128.png' type='image/png'>
-  <link rel='stylesheet' href='default.css'>
-  <link rel='stylesheet' href='queries.css'>
+  <link rel='alternate' hreflang='en' href='https://www.harmonicoscillator.com/post/devlog.html'/>
+  <link rel='alternate' hreflang='pt-BR' href='https://www.harmonicoscillator.com/ptBR/post/devlog.html'/>
+  <link rel='alternate' hreflang='x-default' href='https://www.harmonicoscillator.com/post/devlog.html'/>
+  <link rel='icon' href='logo.svg' type='image/svg'>
+  <link rel='icon' href='logostatic.svg' type='image/svg'>
+  <link rel='icon' href='logo.svg' type='image/svg'>
+  <link rel='stylesheet' href='../default.css'>
+  <link rel='stylesheet' href='../queries.css'>
 </head>
 <body>
   <div id="site-container" class="flex-container-absolute">
@@ -22,14 +23,15 @@
 	    <div class="subnav-top">
 		  <button onclick="navLToggle()"><div id="menu-nav"></div></button>
 		</div>
-	    <a id="logo-link" href="index.html">
+	    <a id="logo-link" href="../index.html">
 		  <div class="logo-container">
 		    <div id="logo"></div>
 		    <noscript><h1>&#9858;</h1></noscript>
 	      </div>
 		</a>
 		<div class="subnav-top flex-justify-end">
-		  <button><a href="ptBR/devlog.html"><div id="ptBR-nav"></div></a></button>
+		  <button id="log-button" onclick="navRToggle()"><div id="dlog-nav"></div></button>
+		  <button><a href="../ptBR/devlog.html"><div id="ptBR-nav"></div></a></button>
 		  <button><div id="enUS-nav" class="deactivated"></div></button>
 		</div>
 	  </nav>
@@ -39,14 +41,14 @@
 	  <section id="block-L" class="main-block-L">
 	    <nav id="nav-side-L" class="nav-side noselect">
 		  <ul id="nav-side-ul">
-	        <li class="li-dashed"><a href="team.html">OSC TEAM</a></li>
-	        <li class="li-dashed"><a href="contact.html">CONTACT</a></li>
+	        <li class="li-dashed"><a href="../team.html">OSC TEAM</a></li>
+	        <li class="li-dashed"><a href="../contact.html">CONTACT</a></li>
 	        <li>
 			  <details open>
 	            <summary>Projects</summary>
 	            <ul>
-	              <li class="li-dashed"><a href="subcircus.html">SUBCIRCUS</a></li>
-				  <li class="li-dashed"><a href="devlog.html">DEV LOG</a></li>
+	              <li class="li-dashed"><a href="../subcircus.html">SUBCIRCUS</a></li>
+				  <li class="li-dashed"><a href="../devlog.html">DEV LOG</a></li>
 	            </ul>
 	          </details>
 			</li>
@@ -66,21 +68,48 @@
 	    </section>
 	  </aside>
 	  <section class="main-block-M">
-        <h1>DEV LOG</h1>
-		<p class="margin-fix">Every Development Post!<br>Reverse chronological order.</p>
-		<h3>2026</h3>
-		<ul class="log-list">
-			<li><a href="post/tuna002.html">DEV LOG #TUNA002</a> &mdash;<br>Tuna Tuna Baboona</li>
-		  <li><a href="post/tuna001.html">DEV LOG #TUNA001</a> &mdash;<br>Introducing <i>O For Tuna!</i></li>
-		  <li><a href="post/osc002.html">DEV LOG #OSC002</a> &mdash;<br>Major company update!</li>
-		</ul>
-		<h3>2025</h3>
-		<ul class="log-list">
-		  <!--<li><a href=#>DEV LOG #CIRCUS001</a> &mdash;<br>Introducing Subcircus!</li>-->
-		  <li><a href="post/osc001.html">DEV LOG #OSC001</a> &mdash;<br>Just sayin hi.</li>
-		</ul>
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+        <h1>#TUNA002</h1>
+		<h2 class="margin-fix">Wahoo &mdash; ANZOL</h2>
+		<h3>Ya Mum<sup>th</sup>, 2026</h3>
+		<p>
+		Fish!
+		</p>
+		<p>That's all!<br>ANZOL</p>
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
+		<!--DEV LOG-->
 	  </section>
-	  <div id="block-R" class="main-block-R"></div>
+	  <div id="block-R" class="main-block-R" style="border-left: 1px solid #222">
+	    <nav id="nav-side-R" class="nav-side noselect">
+		  <ul class="nav-side-ul">
+		    <li>
+		      <details open>
+			  <summary>Related Entries</summary>
+		      <ul>
+			    <li class="li-dashed li-small"><a href="tuna001.html">DEV LOG #TUNA001</a></li>
+			  </ul>
+			  </details>
+			</li>
+		  </ul>
+		</nav>
+	  </div>
 	</main>
 	<footer class="page-footer">
 	  <noscript>
@@ -89,19 +118,19 @@
    	    <nav class="nav-noscript">
    	      <h1>WEBSITE LINKS (ENGLISH)</h1>
    	  	  <ul>
-   	  	    <li><a href="index.html">index</a></li>
-   	  	    <li><a href="team.html">team</a></li>
-			<li><a href="contact.html">contact</a></li>
-   	  	    <li><a href="subcircus.html">subcircus</a></li>
-			<li><a href="devlog.html">devlog</a></li>
+   	  	    <li><a href="../index.html">index</a></li>
+   	  	    <li><a href="../team.html">team</a></li>
+			<li><a href="../contact.html">contact</a></li>
+   	  	    <li><a href="../subcircus.html">subcircus</a></li>
+			<li><a href="../devlog.html">devlog</a></li>
    	  	  </ul>
    	  	  <h1>LINKS DO SITE (PORTUGUÊS)</h1>
    	  	  <ul>
-   	  	    <li><a href="ptBR/index.html">index</a></li>
-   	  	    <li><a href="ptBR/equipe.html">time</a></li>
-			<li><a href="ptBR/contato.html">contato</a></li>
-   	  	    <li><a href="ptBR/subcircus.html">subcircus</a></li>
-			<li><a href="ptBR/devlog.html">devlog</a></li>
+   	  	    <li><a href="../ptBR/index.html">index</a></li>
+   	  	    <li><a href="../ptBR/equipe.html">time</a></li>
+			<li><a href="../ptBR/contato.html">contato</a></li>
+   	  	    <li><a href="../ptBR/subcircus.html">subcircus</a></li>
+			<li><a href="../ptBR/devlog.html">devlog</a></li>
    	  	  </ul>
    	    </nav>
 		<h2><marquee>wow!!!</marquee></h2>
@@ -109,8 +138,8 @@
 	  <p>HARMONIC OSCILLATOR B.V.</p>
 	</footer>
   </div>
-<script src='toggles.js'></script>
-<script src='svgz.js'></script>
-<script src='dice.js'></script>
+<script src='../toggles.js'></script>
+<script src='../svgz.js'></script>
+<script src='../dice.js'></script>
 </body>
 </html>
