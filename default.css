@@ -191,7 +191,6 @@ body {
 .main-block-M figure {text-align: center; margin: 0; width: 80%;}
 .main-block-M figure img {border: 1px solid #AA3090;}
 .main-block-M figure figcaption {height: 2rem; margin: -2em 0 0; font-variant: small-caps;}
-.main-block-M figcaption span {background-color: #000000CC; color: #AA3090; padding: 2px 5px;}
 .main-block-M address {margin: 1rem 0;}
 .main-block-M h1 {font-size: 2rem; text-align: center;}
 .main-block-M h2 {font-size: 1.5rem;}
@@ -199,6 +198,12 @@ body {
   font: 16pt Garamond, 'EB Garamond', serif;
   width: 80%;
   text-align-last: center;
+}
+.main-block-M figcaption span {
+	background-color: #000000CC;
+	color: #AA3090;
+	padding: 2px 5px;
+	line-height: 1.5em;
 }
 
 .main-block-M .monospace {font: 14pt "Courier New", Courier, monospace;}
