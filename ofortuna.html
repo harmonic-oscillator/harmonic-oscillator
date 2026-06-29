@@ -2,14 +2,22 @@
 <html lang='en'>
 <head>
   <title>HARMONIC OSCILLATOR</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Game", "VideoGame"],
+	"name": "O For Tuna",
+	"creativeWorkStatus": "Incomplete"
+  }
+  </script>
   <meta charset='utf-8'>
   <meta name='description' content='UNDERGROUND ARTS &amp; GAME COMPANY'>
   <meta name='keywords' content='HARMONIC OSCILLATOR UNDERGROUND ARTS &amp; GAME COMPANY'>
   <meta name='author' content='ANZOL'>
   <meta name='viewport' content='width=device-width; initial-scale=1'>
-  <link rel='alternate' hreflang='en' href='https://www.harmonicoscillator.com/team.html'/>
-  <link rel='alternate' hreflang='pt-BR' href='https://www.harmonicoscillator.com/ptBR/equipe.html'/>
-  <link rel='alternate' hreflang='x-default' href='https://www.harmonicoscillator.com/team.html'/>
+  <link rel='alternate' hreflang='en' href='https://www.harmonicoscillator.com/ofortuna.html'/>
+  <link rel='alternate' hreflang='pt-BR' href='https://www.harmonicoscillator.com/ptBR/ofortuna.html'/>
+  <link rel='alternate' hreflang='x-default' href='https://www.harmonicoscillator.com/ofortuna.html'/>
   <link rel='icon' href='logo128.ico' type='image/ico'>
   <link rel='icon' href='logo128.png' type='image/png'>
   <link rel='stylesheet' href='default.css'>
@@ -29,7 +37,8 @@
 	      </div>
 		</a>
 		<div class="subnav-top flex-justify-end">
-		  <button><a href="ptBR/equipe.html"><div id="ptBR-nav"></div></a></button>
+		  <!--<button id="log-button" onclick="navRToggle()"><div id="dlog-nav"></div></button>-->
+		  <button><a href="ptBR/ofortuna.html"><div id="ptBR-nav"></div></a></button>
 		  <button><div id="enUS-nav" class="deactivated"></div></button>
 		</div>
 	  </nav>
@@ -42,7 +51,7 @@
 	        <li class="li-dashed"><a href="team.html">OSC TEAM</a></li>
 	        <li class="li-dashed"><a href="contact.html">CONTACT</a></li>
 	        <li>
-			  <details>
+			  <details open>
 	            <summary>Projects</summary>
 	            <ul>
 				  <li class="li-dashed"><a href="ofortuna.html">O FOR TUNA</a></li>
@@ -67,39 +76,39 @@
 	    </section>
 	  </aside>
 	  <section class="main-block-M">
-	    <h1>THE OSC TEAM</h1>
-	    <figure class="noselect hard-noselect">
-		  <img style="max-width: 100%" alt="[SUNSET NA CASINHA]" src="assets/HARMONIC-OSCILLATOR-2.png"/>
-		</figure>
-		<p>
-		  HARMONIC OSCILLATOR is a 3-person arts &amp; game company founded in 2025.
-		  We're from Brazil and from the States, and are based in Amsterdam.<br>
-		  Our team members are:<br><br>
-		  <strong class="strong">ANZOL<br>]][[<br>DUBIOUS</strong>
-		</p>
-		<figure class="noselect hard-noselect">
-		  <img style="max-width: 100%" alt="[PEKO PEKO RAMEN]" src="assets/HARMONIC-OSCILLATOR-1.png"/>
-		  <figcaption>We Love Ramen</figcaption>
-		</figure>
-		<p> </p>
+        <h1>O FOR TUNA</h1>
 		<figure class="talisman-container">
 		  <div id="talisman-locked">
 		    <button class="talisman" onclick="talismanToggle()">
-			  <div id="birds-osc-wide" class="osc-sticker-wide"></div>
+			  <div id="default-osc-wide" class="osc-sticker-wide"></div>
 			</button>
 		  </div>
 		  <div id="talisman-unlocked">
-			<div class="dice dice-static side-1"></div>
 			<div class="dice dice-static side-2"></div>
-		    <button class="talisman" onclick="talismanToggle()">
-			  <div id="birds-osc" class="osc-sticker"></div>
-			</button>
-			<div class="dice dice-static side-1"></div>
 			<div class="dice dice-static side-6"></div>
+		    <button class="talisman" onclick="talismanToggle()">
+			  <div id="default-osc" class="osc-sticker"></div>
+			</button>
+			<div class="dice dice-static side-6"></div>
+			<div class="dice dice-static side-2"></div>
 		  </div>
 		</figure>
+		<p>We intend to lift the <strong class="strong">veil of secrecy</strong> on this project soon...</p>
 	  </section>
-	  <div id="block-R" class="main-block-R"></div>
+	  <div id="block-R" class="main-block-R border-fix"><!--
+	    <nav id="nav-side-R" class="nav-side noselect">
+		  <ul class="nav-side-ul">
+		    <li>
+		      <details open>
+			  <summary>Subcircus Entries</summary>
+		      <ul>
+			    <li class="li-dashed li-small"><a href=#>DEV LOG #TUNA001</a></li>
+			  </ul>
+			  </details>
+			</li>
+		  </ul>
+		</nav>-->
+	  </div>
 	</main>
 	<footer class="page-footer">
 	  <noscript>
