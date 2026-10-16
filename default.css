@@ -550,26 +550,21 @@ body {
 
 /*LOADING SCREEN CSS*/
 
-.loading-screen {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-top: 1px solid #AA3090;
-  border-bottom: 1px solid #AA3090;
+#loading-screen {
+  opacity: 100%;
+  background-color: #000;
+  min-height: 120px;
+  max-width: 100%;
 }
 
-.spinner-container {
+#spinner-container {
   flex: 0 1 auto;
-  width: 64px;
-  height: 64px;
   opacity: 100%;
-  border: 1px solid blue;
 }
 
 #spinner {
   flex: 0 1 auto;
+  opacity: 100%;
   border: 2px solid #000;
   border-radius: 50%;
   width: 64px;
@@ -577,6 +572,16 @@ body {
   animation: loader-spin 1s ease-in-out infinite alternate;
   -webkit-animation: loader-spin 1s ease-in-out infinite alternate; /* SAFARI? */
 }
+
+.fake-load-4s {
+  animation: fake-load 4s;
+  -webkit-animation: fake-load 4s;
+ }
+ 
+ .fake-load-2s {
+  animation: fake-load 2.5s;
+  -webkit-animation: fake-load 2.5s;
+ }
 
 @keyframes fake-load {
   0% {opacity: 100%;}
