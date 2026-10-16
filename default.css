@@ -323,6 +323,10 @@ body {
   height: 4rem;
 }
 
+.splash-div h1 {border-bottom: 1px solid #AA3090;}
+.splash-div h2 {border-top: 1px solid #AA3090;}
+
+
 .osc-crows {
   position: absolute;
   bottom: 4rem;
@@ -331,11 +335,7 @@ body {
   max-height: 60%;
 }
 
-#timelapse {
-  max-width: 100%;
-  border-top: 1px solid #AA3090;
-  border-bottom: 1px solid #AA3090;
-}
+#timelapse {max-width: 100%;}
 
 #crow-1 {left: 21%;}
 #crow-2 {left: -7%;}
@@ -551,20 +551,25 @@ body {
 /*LOADING SCREEN CSS*/
 
 .loading-screen {
-  opacity: 0%;
-  background-color: #000;
-  animation: fake-load 4s;
-  -webkit-animation: fake-load 4s;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #AA3090;
+  border-bottom: 1px solid #AA3090;
 }
 
 .spinner-container {
   flex: 0 1 auto;
-  opacity: 0%;
-  animation: fake-load 2.5s;
-  -webkit-animation: fake-load 2.5s;
+  width: 64px;
+  height: 64px;
+  opacity: 100%;
+  border: 1px solid blue;
 }
 
 #spinner {
+  flex: 0 1 auto;
   border: 2px solid #000;
   border-radius: 50%;
   width: 64px;
