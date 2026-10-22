@@ -401,6 +401,32 @@ body {
 @keyframes -webkit-diceSuccessC {from {stroke: #9999FF; fill: #9999FF;} to {stroke: #AA3090; fill: #000;}}
 @keyframes -webkit-diceSuccessD {from {stroke: #000; fill: #000;} to {stroke: #AA3090; fill: #000;}}
 
+/*FIREFOX AND I HAVE TO BREAK UP I THINK BECAUSE THEY STOPPED SUPPORTING MARQUEE AND I JUST CAN'T LIVE WITH THAT*/
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 2rem;
+}
+
+.marquee div {
+  display: block;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 20s linear infinite;
+}
+
+/*width 50% means we can use two spans. i'd suppose 100% means one span*/
+.marquee span {float: left; width: 100%;}
+.marquee h2 {margin:0;}
+
+@keyframes marquee {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
 /*SECRETS*/
 
 #secrets-window {
