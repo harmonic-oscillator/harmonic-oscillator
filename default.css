@@ -282,12 +282,16 @@ body {
 .nav-side a:hover {color: #3DCC66;}
 .nav-side a:active {color: #FFF;}
 
+.albums {margin-bottom: 4rem; padding-bottom: 4rem;}
+.albums img {max-width: 100%;}
+.albums figcaption {margin: 0; padding-top: 2rem;}
+
 #secrets-button {border: none; margin: 1rem;}
+
 /*ABSOLUTE SELECTOR CHAOS*/
 .li-esoteric {border-top: 1px solid #222; border-bottom: 1px dashed #222;}
 .li-esoteric ~ .li-esoteric {border-top: none;}
 .li-esoteric:last-of-type {border-bottom: 1px solid #222;}
-
 
 /*PAGE-FOOTER CONTENT*/
 
