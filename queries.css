@@ -49,8 +49,12 @@
   .flex-justify-end button {margin: 0;}
   .flex-justify-end button:last-of-type {margin-right: 0;}
   #log-button {order: 3;}
+  
+  .albums figcaption {font-size: 0.8rem;}
 }
 
+/*this one seems broken as hell?*/
+/*
 @media all and (max-width: 500px) {
   .main-block-M p {min-width: 300px;}
   .main-block-M figure {min-width: 300px;}
@@ -58,7 +62,7 @@
   .splash-div h2 {font-size: 18px; height: 1.5rem;}
   .osc-crows {bottom: 1.5rem;}
 }
-
+*/
 @media all and (max-width: 400px) {
   #talisman-unlocked {gap: 0.25rem;}
   #secrets-window {
